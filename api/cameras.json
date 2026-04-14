@@ -9,32 +9,32 @@
   },
   {
     "id": "oak-002",
-    "latitude": 37.855,
-    "longitude": -122.249,
+    "latitude": 37.8501,
+    "longitude": -122.2523,
     "city": "Oakland",
     "camera_type": "speed",
     "address": "Claremont Ave (Hillegass-College Ave)"
   },
   {
     "id": "oak-003",
-    "latitude": 37.785,
-    "longitude": -122.224,
+    "latitude": 37.7848,
+    "longitude": -122.2319,
     "city": "Oakland",
     "camera_type": "speed",
     "address": "Foothill Blvd (Irving St-24th Ave)"
   },
   {
     "id": "oak-004",
-    "latitude": 37.792,
-    "longitude": -122.228,
+    "latitude": 37.7884,
+    "longitude": -122.2398,
     "city": "Oakland",
     "camera_type": "speed",
     "address": "Foothill Blvd (19th-20th Ave)"
   },
   {
     "id": "oak-005",
-    "latitude": 37.805,
-    "longitude": -122.295,
+    "latitude": 37.8041,
+    "longitude": -122.288,
     "city": "Oakland",
     "camera_type": "speed",
     "address": "7th St (Adeline-Linden St)"
@@ -65,24 +65,24 @@
   },
   {
     "id": "oak-009",
-    "latitude": 37.802,
-    "longitude": -122.272,
+    "latitude": 37.799,
+    "longitude": -122.2732,
     "city": "Oakland",
     "camera_type": "speed",
     "address": "7th St (Broadway-Franklin St)"
   },
   {
     "id": "oak-010",
-    "latitude": 37.818,
-    "longitude": -122.195,
+    "latitude": 37.7852,
+    "longitude": -122.1899,
     "city": "Oakland",
     "camera_type": "speed",
     "address": "MacArthur Blvd (Green Acre Rd-Enos Ave)"
   },
   {
     "id": "oak-011",
-    "latitude": 37.778,
-    "longitude": -122.224,
+    "latitude": 37.7878,
+    "longitude": -122.2211,
     "city": "Oakland",
     "camera_type": "speed",
     "address": "Fruitvale Ave (Galindo-Logan St)"
