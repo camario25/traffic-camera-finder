@@ -41,8 +41,8 @@
   },
   {
     "id": "oak-006",
-    "latitude": 37.81,
-    "longitude": -122.292,
+    "latitude": 37.813,
+    "longitude": -122.276,
     "city": "Oakland",
     "camera_type": "speed",
     "address": "West Grand Ave (Chestnut-Linden St)"
@@ -89,8 +89,8 @@
   },
   {
     "id": "oak-012",
-    "latitude": 37.775,
-    "longitude": -122.218,
+    "latitude": 37.776,
+    "longitude": -122.22,
     "city": "Oakland",
     "camera_type": "speed",
     "address": "International Blvd (40th-41st Ave)"
@@ -98,47 +98,47 @@
   {
     "id": "oak-013",
     "latitude": 37.738,
-    "longitude": -122.195,
+    "longitude": -122.196,
     "city": "Oakland",
     "camera_type": "speed",
     "address": "Hegenberger Rd (Spencer-Hawley St)"
   },
   {
     "id": "oak-014",
-    "latitude": 37.758,
-    "longitude": -122.182,
+    "latitude": 37.7656,
+    "longitude": -122.1771,
     "city": "Oakland",
     "camera_type": "speed",
     "address": "73rd Ave (Fresno St-Krause Ave)"
   },
   {
     "id": "oak-015",
-    "latitude": 37.745,
-    "longitude": -122.168,
+    "latitude": 37.7576,
+    "longitude": -122.1685,
     "city": "Oakland",
     "camera_type": "speed",
     "address": "Bancroft Ave (86th-Auseon Ave)"
   },
   {
     "id": "oak-016",
-    "latitude": 37.738,
-    "longitude": -122.158,
+    "latitude": 37.7485,
+    "longitude": -122.1614,
     "city": "Oakland",
     "camera_type": "speed",
     "address": "98th Ave (Blake Dr-Gould St)"
   },
   {
     "id": "oak-017",
-    "latitude": 37.742,
-    "longitude": -122.162,
+    "latitude": 37.7463,
+    "longitude": -122.1662,
     "city": "Oakland",
     "camera_type": "speed",
     "address": "98th Ave (Cherry-Birch St)"
   },
   {
     "id": "oak-018",
-    "latitude": 37.765,
-    "longitude": -122.188,
+    "latitude": 37.768,
+    "longitude": -122.179,
     "city": "Oakland",
     "camera_type": "speed",
     "address": "Bancroft Ave (61st-62nd Ave)"

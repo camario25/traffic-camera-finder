@@ -6,7 +6,7 @@ Verify Oakland camera coordinates against SF Bay Transit data
 import json
 
 # Load current camera data from API
-with open('../api/cameras.json', 'r') as f:
+with open('api/cameras.json', 'r') as f:
     all_cameras = json.load(f)
 
 # Filter Oakland cameras
@@ -28,11 +28,19 @@ verified = {
     "oak-003": {"lat": 37.7848, "lon": -122.2319, "source": "Foothill Blvd & 24th Ave (55150)"},
     "oak-004": {"lat": 37.7884, "lon": -122.2398, "source": "Foothill Blvd & 19th Ave (52397)"},
     "oak-005": {"lat": 37.8041, "lon": -122.2880, "source": "7th St & Adeline St (56884)"},
+    "oak-006": {"lat": 37.8130, "lon": -122.2760, "source": "W Grand Ave between Market & Brush (estimated)"},
     "oak-007": {"lat": 37.8154, "lon": -122.2641, "source": "Broadway & 27th St (verified)"},
     "oak-008": {"lat": 37.8153, "lon": -122.2747, "source": "San Pablo Ave & 25th St (59499)"},
     "oak-009": {"lat": 37.7990, "lon": -122.2732, "source": "7th St & Franklin St"},
     "oak-010": {"lat": 37.7852, "lon": -122.1899, "source": "MacArthur Blvd & Enos Ave"},
     "oak-011": {"lat": 37.7878, "lon": -122.2211, "source": "Fruitvale Ave & Logan St (51248)"},
+    "oak-012": {"lat": 37.7760, "lon": -122.2200, "source": "International Blvd & 40th Ave (estimated)"},
+    "oak-013": {"lat": 37.7380, "lon": -122.1960, "source": "Hegenberger Rd near Airport Dr (54335)"},
+    "oak-014": {"lat": 37.7656, "lon": -122.1771, "source": "73rd Ave & Bancroft Ave (55438)"},
+    "oak-015": {"lat": 37.7576, "lon": -122.1685, "source": "Bancroft Ave & 85th Ave (51455)"},
+    "oak-016": {"lat": 37.7485, "lon": -122.1614, "source": "98th Ave & Bancroft Ave (59858)"},
+    "oak-017": {"lat": 37.7463, "lon": -122.1662, "source": "98th Ave & Cherry St (55472)"},
+    "oak-018": {"lat": 37.7680, "lon": -122.1790, "source": "Bancroft Ave & 62nd Ave (estimated from nearby stops)"},
 }
 
 print("=" * 80)
