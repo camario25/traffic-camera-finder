@@ -24,7 +24,7 @@ def get_verified_camera_data():
         {"id": "oak-005", "latitude": 37.8041, "longitude": -122.2880, "city": "Oakland", "camera_type": "speed", "address": "7th St (Adeline-Linden St)"},
         {"id": "oak-006", "latitude": 37.8100, "longitude": -122.2920, "city": "Oakland", "camera_type": "speed", "address": "West Grand Ave (Chestnut-Linden St)"},
         {"id": "oak-007", "latitude": 37.8165, "longitude": -122.2634, "city": "Oakland", "camera_type": "speed", "address": "Broadway (26th-27th St)"},
-        {"id": "oak-008", "latitude": 37.8350, "longitude": -122.2780, "city": "Oakland", "camera_type": "speed", "address": "San Pablo Ave (Athens Ave-Sycamore St)"},
+        {"id": "oak-008", "latitude": 37.8153, "longitude": -122.2747, "city": "Oakland", "camera_type": "speed", "address": "San Pablo Ave (Athens Ave-Sycamore St)"},
         {"id": "oak-009", "latitude": 37.7990, "longitude": -122.2732, "city": "Oakland", "camera_type": "speed", "address": "7th St (Broadway-Franklin St)"},
         {"id": "oak-010", "latitude": 37.7852, "longitude": -122.1899, "city": "Oakland", "camera_type": "speed", "address": "MacArthur Blvd (Green Acre Rd-Enos Ave)"},
         {"id": "oak-011", "latitude": 37.7878, "longitude": -122.2211, "city": "Oakland", "camera_type": "speed", "address": "Fruitvale Ave (Galindo-Logan St)"},

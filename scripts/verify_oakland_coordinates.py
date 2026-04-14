@@ -29,6 +29,7 @@ verified = {
     "oak-004": {"lat": 37.7884, "lon": -122.2398, "source": "Foothill Blvd & 19th Ave (52397)"},
     "oak-005": {"lat": 37.8041, "lon": -122.2880, "source": "7th St & Adeline St (56884)"},
     "oak-007": {"lat": 37.8154, "lon": -122.2641, "source": "Broadway & 27th St (verified)"},
+    "oak-008": {"lat": 37.8153, "lon": -122.2747, "source": "San Pablo Ave & 25th St (59499)"},
     "oak-009": {"lat": 37.7990, "lon": -122.2732, "source": "7th St & Franklin St"},
     "oak-010": {"lat": 37.7852, "lon": -122.1899, "source": "MacArthur Blvd & Enos Ave"},
     "oak-011": {"lat": 37.7878, "lon": -122.2211, "source": "Fruitvale Ave & Logan St (51248)"},
