@@ -1,0 +1,45 @@
+name: Update Camera Data
+
+on:
+  # Run on the 1st of every month at 2am UTC
+  schedule:
+    - cron: '0 2 1 * *'
+  
+  # Allow manual trigger from Actions tab
+  workflow_dispatch:
+
+jobs:
+  update-cameras:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Run camera scraper
+        run: |
+          python scripts/update_cameras.py
+      
+      - name: Check for changes
+        id: git-check
+        run: |
+          git diff --exit-code api/cameras.json || echo "changed=true" >> $GITHUB_OUTPUT
+      
+      - name: Commit and push if changed
+        if: steps.git-check.outputs.changed == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add api/cameras.json
+          git commit -m "chore: update camera data (automated)"
+          git push
+      
+      - name: No changes detected
+        if: steps.git-check.outputs.changed != 'true'
+        run: |
+          echo "No changes to camera data detected."

@@ -94,6 +94,15 @@ traffic-camera-finder/
     └── apple-touch-icon.png  # iOS home screen icon (180x180)
 ```
 
+## Camera Data Updates
+
+Camera locations are automatically updated monthly via GitHub Actions:
+- Scrapes official Oakland and San Francisco city websites
+- Geocodes addresses to accurate coordinates
+- Auto-commits changes to `api/cameras.json`
+
+See `scripts/README.md` for details on the automated scraper.
+
 ## Technologies Used
 
 - **Leaflet** - Interactive maps
@@ -101,6 +110,7 @@ traffic-camera-finder/
 - **Service Worker** - Offline support
 - **localStorage** - Camera data caching
 - **Geolocation API** - User positioning
+- **Python** - Automated data scraping
 
 ## Requirements
 
