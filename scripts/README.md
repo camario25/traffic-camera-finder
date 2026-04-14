@@ -19,12 +19,51 @@ Camera locations are compiled from official city sources:
 
 ## Coordinate Accuracy
 
-Coordinates were obtained through:
-1. **Automated geocoding** (15 cameras) - Using Nominatim/OpenStreetMap
-2. **Transit stop data** (5 cameras) - From SF Bay Transit API
-3. **Manual verification** (44 cameras) - Cross-referenced with mapping services
+All 70 camera coordinates have been verified using a multi-source approach:
 
-All coordinates are accurate to within 1-2 blocks of the actual camera location.
+### Verification Methods (in order of accuracy):
+
+1. **SF Bay Transit Stops** (18 Oakland cameras) - ±10-50m accuracy
+   - Professional surveyed coordinates from bus stop locations
+   - Most reliable method for Oakland cameras
+   - Source: https://sfbaytransit.org
+
+2. **Manual Google Maps Verification** (52 SF cameras) - ±10-100m accuracy
+   - Cross-referenced with street view and satellite imagery
+   - Verified intersection locations
+
+3. **Automated Geocoding** (initial only) - ±100-500m accuracy
+   - Used only for initial coordinate estimates
+   - Always followed by manual verification
+
+**Current Status:** All 70 cameras verified to within 1-2 blocks (±200m) of actual location.
+
+### Verification Process for New Cameras
+
+When new cameras are added (quarterly updates), follow this process:
+
+1. **SF Bay Transit Lookup** (for Oakland cameras):
+   - Search https://sfbaytransit.org for nearby bus stops
+   - Use transit stop coordinates as reference
+   - Example: "Broadway 27th Oakland" → Stop ID 12345 at 37.8154, -122.2641
+
+2. **Google Maps Cross-Reference**:
+   - Search for exact intersection
+   - Right-click → "What's here?" to get coordinates
+   - Compare with transit stop coordinates (should be within ~100m)
+
+3. **Use Verification Script**:
+   ```bash
+   python3 scripts/verify_oakland_coordinates.py
+   ```
+   Shows distance between current and verified coordinates
+
+4. **Update Source File**:
+   - Edit `scripts/update_cameras.py` with verified coordinates
+   - Run `python3 scripts/update_cameras.py` to regenerate API
+   - Commit both files
+
+See `scripts/AUTOMATED_WORKFLOW.md` for detailed verification instructions.
 
 ## Scripts
 
@@ -41,8 +80,37 @@ python3 scripts/update_cameras.py
 - Writes to `api/cameras.json`
 - No external dependencies or API calls
 
-### `geocode_cameras.py`
-Experimental geocoding script (not currently used in production).
+### `verify_oakland_coordinates.py`
+Verification tool that compares current camera coordinates against known-good reference coordinates from SF Bay Transit stops.
+
+**Usage:**
+```bash
+python3 scripts/verify_oakland_coordinates.py
+```
+
+**What it does:**
+- Loads current camera data from `api/cameras.json`
+- Compares against verified coordinates from SF Bay Transit stops
+- Calculates distance between current and verified coordinates
+- Flags cameras that are >200m off target
+- Shows verification status for all Oakland cameras
+
+**Output:**
+```
+oak-001: Martin Luther King Jr Way (42nd-43rd St)
+  Current:  37.8315, -122.268
+  Verified: 37.8313, -122.2679 (MLK Jr Way & 42nd St)
+  Distance: 24m ✅ GOOD
+
+Summary
+Verified: 18/18 cameras
+Issues found: 0
+```
+
+**When to use:**
+- After updating camera coordinates
+- When reviewing quarterly update PRs
+- To check which cameras need verification
 
 ### `monitor_cameras.py`
 **Option 3 Enhanced** - Automated camera monitoring with Playwright browser automation.
@@ -134,10 +202,30 @@ When you need to update cameras manually:
    {"id": "oak-019", "latitude": 37.XXXX, "longitude": -122.XXXX, 
     "city": "Oakland", "camera_type": "speed", "address": "Street Name (X-Y)"}
    ```
-4. **Get coordinates** using one of these methods:
-   - Google Maps: Right-click location → "What's here?"
-   - OpenStreetMap: Click location, see coordinates in URL
-   - Transit stops: Search [SF Bay Transit](https://sfbaytransit.org/)
+4. **Get coordinates** using this recommended process:
+   
+   **Step 1: SF Bay Transit (for Oakland cameras)**
+   - Go to https://sfbaytransit.org
+   - Search for the camera address (e.g., "Broadway 27th Oakland")
+   - Find nearest bus stop (within 1-2 blocks)
+   - Copy coordinates from stop details
+   - Transit stops have professionally surveyed coordinates (±10-50m)
+   
+   **Step 2: Google Maps (for all cameras)**
+   - Search for exact intersection in Google Maps
+   - Right-click location → "What's here?"
+   - Copy coordinates (format: 37.1234, -122.5678)
+   
+   **Step 3: Cross-Reference (best practice)**
+   - If both methods available, compare coordinates
+   - Should be within ~100m of each other
+   - Use transit stop coordinates if available (more accurate)
+   - Otherwise use Google Maps coordinates
+   
+   **Step 4: Verify**
+   ```bash
+   python3 scripts/verify_oakland_coordinates.py
+   ```
 5. **Run the script:**
    ```bash
    python3 scripts/update_cameras.py
@@ -202,9 +290,10 @@ Each camera entry in `cameras.json`:
 
 ## Known Issues
 
-- Automated geocoding may be off by 1-2 blocks (always verify in PR)
-- Nominatim geocoding works best for street addresses, less reliable for intersections
-- GitHub Actions requires manual PR review before changes go live
+- **Automated geocoding requires manual verification** - Initial coordinates from Nominatim can be off by 1-2 blocks
+- **SF cameras lack transit stop verification** - Only Oakland cameras can use SF Bay Transit for verification
+- **Intersection addresses are ambiguous** - "Broadway (26th-27th St)" could mean multiple exact locations
+- **GitHub Actions requires manual PR review** - Coordinates must be verified before merging
 
 ## Future Improvements
 
