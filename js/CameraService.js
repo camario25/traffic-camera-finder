@@ -161,7 +161,7 @@ class CameraService {
   async fetchCamerasFromAPI() {
     // TODO: Replace with actual API endpoint once determined
     // For now, using a placeholder that will be replaced with real data source
-    const API_ENDPOINT = '/api/cameras.json';
+    const API_ENDPOINT = './api/cameras.json';
     const TIMEOUT_MS = 10000; // 10 second timeout per requirement 2.8
 
     try {
