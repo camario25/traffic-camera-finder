@@ -1,9 +1,9 @@
-name: Update Camera Data
+name: Automated Camera Update
 
 on:
-  # Run on the 1st of every month at 2am UTC
+  # Run on the 1st of every 3 months (Jan, Apr, Jul, Oct) at 2am UTC
   schedule:
-    - cron: '0 2 1 * *'
+    - cron: '0 2 1 1,4,7,10 *'
   
   # Allow manual trigger from Actions tab
   workflow_dispatch:
@@ -11,6 +11,10 @@ on:
 jobs:
   update-cameras:
     runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+      pull-requests: write
     
     steps:
       - name: Checkout repository
@@ -21,25 +25,30 @@ jobs:
         with:
           python-version: '3.11'
       
-      - name: Run camera scraper
+      - name: Install dependencies
         run: |
-          python scripts/update_cameras.py
+          pip install playwright requests
+          playwright install chromium
       
-      - name: Check for changes
-        id: git-check
+      - name: Run automated camera update
+        id: update
         run: |
-          git diff --exit-code api/cameras.json || echo "changed=true" >> $GITHUB_OUTPUT
+          python scripts/auto_update_cameras.py
+        continue-on-error: true
       
-      - name: Commit and push if changed
-        if: steps.git-check.outputs.changed == 'true'
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add api/cameras.json
-          git commit -m "chore: update camera data (automated)"
-          git push
+      - name: Create Pull Request
+        if: steps.update.outcome == 'failure'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'chore: automated camera data update'
+          branch: automated-camera-update
+          delete-branch: true
+          title: '🤖 Automated Camera Update - Please Review Coordinates'
+          body-path: /tmp/pr_description.md
+          labels: automated, camera-update
       
       - name: No changes detected
-        if: steps.git-check.outputs.changed != 'true'
+        if: steps.update.outcome == 'success'
         run: |
-          echo "No changes to camera data detected."
+          echo "No camera changes detected - data is up to date"
