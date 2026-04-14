@@ -42,7 +42,7 @@
   {
     "id": "oak-006",
     "latitude": 37.813,
-    "longitude": -122.276,
+    "longitude": -122.29,
     "city": "Oakland",
     "camera_type": "speed",
     "address": "West Grand Ave (Chestnut-Linden St)"
@@ -97,8 +97,8 @@
   },
   {
     "id": "oak-013",
-    "latitude": 37.738,
-    "longitude": -122.196,
+    "latitude": 37.7435,
+    "longitude": -122.1975,
     "city": "Oakland",
     "camera_type": "speed",
     "address": "Hegenberger Rd (Spencer-Hawley St)"
