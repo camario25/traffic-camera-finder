@@ -1,0 +1,16 @@
+{
+  "name": "traffic-camera-finder",
+  "version": "1.0.0",
+  "description": "Progressive Web App for finding traffic enforcement cameras in Oakland and San Francisco",
+  "type": "module",
+  "scripts": {
+    "test": "vitest --run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui"
+  },
+  "devDependencies": {
+    "canvas": "^3.2.3",
+    "happy-dom": "^12.10.3",
+    "vitest": "^1.6.1"
+  }
+}

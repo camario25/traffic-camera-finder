@@ -1,0 +1,66 @@
+[
+  {
+    "id": "oak-001",
+    "latitude": 37.8044,
+    "longitude": -122.2712,
+    "city": "Oakland",
+    "camera_type": "speed",
+    "address": "International Blvd & 23rd Ave"
+  },
+  {
+    "id": "oak-002",
+    "latitude": 37.8100,
+    "longitude": -122.2700,
+    "city": "Oakland",
+    "camera_type": "red_light",
+    "address": "Broadway & 12th St"
+  },
+  {
+    "id": "oak-003",
+    "latitude": 37.7955,
+    "longitude": -122.2730,
+    "city": "Oakland",
+    "camera_type": "speed",
+    "address": "Fruitvale Ave & E 12th St"
+  },
+  {
+    "id": "sf-001",
+    "latitude": 37.7749,
+    "longitude": -122.4194,
+    "city": "San Francisco",
+    "camera_type": "red_light",
+    "address": "Market St & 5th St"
+  },
+  {
+    "id": "sf-002",
+    "latitude": 37.7800,
+    "longitude": -122.4200,
+    "city": "San Francisco",
+    "camera_type": "speed",
+    "address": "Mission St & 16th St"
+  },
+  {
+    "id": "sf-003",
+    "latitude": 37.7850,
+    "longitude": -122.4100,
+    "city": "San Francisco",
+    "camera_type": "red_light",
+    "address": "Van Ness Ave & Market St"
+  },
+  {
+    "id": "sf-004",
+    "latitude": 37.7700,
+    "longitude": -122.4300,
+    "city": "San Francisco",
+    "camera_type": "speed",
+    "address": "Geary Blvd & Masonic Ave"
+  },
+  {
+    "id": "oak-004",
+    "latitude": 37.8150,
+    "longitude": -122.2650,
+    "city": "Oakland",
+    "camera_type": "red_light",
+    "address": "Telegraph Ave & 40th St"
+  }
+]
