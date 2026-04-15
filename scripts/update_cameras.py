@@ -29,7 +29,7 @@ def get_verified_camera_data():
         {"id": "oak-010", "latitude": 37.7852, "longitude": -122.1899, "city": "Oakland", "camera_type": "speed", "address": "MacArthur Blvd (Green Acre Rd-Enos Ave)"},
         {"id": "oak-011", "latitude": 37.7878, "longitude": -122.2211, "city": "Oakland", "camera_type": "speed", "address": "Fruitvale Ave (Galindo-Logan St)"},
         {"id": "oak-012", "latitude": 37.7760, "longitude": -122.2200, "city": "Oakland", "camera_type": "speed", "address": "International Blvd (40th-41st Ave)"},
-        {"id": "oak-013", "latitude": 37.7435, "longitude": -122.1975, "city": "Oakland", "camera_type": "speed", "address": "Hegenberger Rd (Spencer-Hawley St)"},
+        {"id": "oak-013", "latitude": 37.7550, "longitude": -122.1930, "city": "Oakland", "camera_type": "speed", "address": "Hegenberger Rd (Spencer-Hawley St)"},
         {"id": "oak-014", "latitude": 37.7656, "longitude": -122.1771, "city": "Oakland", "camera_type": "speed", "address": "73rd Ave (Fresno St-Krause Ave)"},
         {"id": "oak-015", "latitude": 37.7576, "longitude": -122.1685, "city": "Oakland", "camera_type": "speed", "address": "Bancroft Ave (86th-Auseon Ave)"},
         {"id": "oak-016", "latitude": 37.7485, "longitude": -122.1614, "city": "Oakland", "camera_type": "speed", "address": "98th Ave (Blake Dr-Gould St)"},
