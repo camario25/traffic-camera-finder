@@ -35,7 +35,7 @@ verified = {
     "oak-010": {"lat": 37.7852, "lon": -122.1899, "source": "MacArthur Blvd & Enos Ave"},
     "oak-011": {"lat": 37.7878, "lon": -122.2211, "source": "Fruitvale Ave & Logan St (51248)"},
     "oak-012": {"lat": 37.7760, "lon": -122.2200, "source": "International Blvd & 40th Ave (estimated)"},
-    "oak-013": {"lat": 37.7435, "lon": -122.1975, "source": "Hegenberger Rd near Hawley St (verified from map)"},
+    "oak-013": {"lat": 37.7550, "lon": -122.1930, "source": "Hegenberger Rd between Spencer & Hawley (before 73rd Ave)"},
     "oak-014": {"lat": 37.7656, "lon": -122.1771, "source": "73rd Ave & Bancroft Ave (55438)"},
     "oak-015": {"lat": 37.7576, "lon": -122.1685, "source": "Bancroft Ave & 85th Ave (51455)"},
     "oak-016": {"lat": 37.7485, "lon": -122.1614, "source": "98th Ave & Bancroft Ave (59858)"},
