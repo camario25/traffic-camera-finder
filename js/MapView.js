@@ -45,18 +45,41 @@ class MapView {
   }
 
   /**
-   * Create custom red pin icon for camera markers
+   * Create custom pin icon for speed camera markers (orange with speedometer)
    * @returns {L.Icon} Leaflet icon instance
    * @private
    */
-  _createCameraIcon() {
+  _createSpeedCameraIcon() {
+    return L.icon({
+      iconUrl: 'data:image/svg+xml;base64,' + btoa(`
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" viewBox="0 0 32 40">
+          <path fill="#f97316" stroke="#c2410c" stroke-width="1.5" d="M16 0C9.373 0 4 5.373 4 12c0 9 12 28 12 28s12-19 12-28c0-6.627-5.373-12-12-12z"/>
+          <circle cx="16" cy="12" r="6" fill="#ffffff"/>
+          <path fill="#f97316" d="M16 7.5 A4.5 4.5 0 0 1 20.5 12 L16 12 Z" transform="rotate(-45 16 12)"/>
+          <circle cx="16" cy="12" r="1" fill="#c2410c"/>
+          <line x1="16" y1="12" x2="18.5" y2="9.5" stroke="#c2410c" stroke-width="0.8"/>
+        </svg>
+      `),
+      iconSize: [32, 40],
+      iconAnchor: [16, 40],
+      popupAnchor: [0, -40]
+    });
+  }
+
+  /**
+   * Create custom pin icon for red light camera markers (red with traffic light)
+   * @returns {L.Icon} Leaflet icon instance
+   * @private
+   */
+  _createRedLightCameraIcon() {
     return L.icon({
       iconUrl: 'data:image/svg+xml;base64,' + btoa(`
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" viewBox="0 0 32 40">
           <path fill="#dc2626" stroke="#991b1b" stroke-width="1.5" d="M16 0C9.373 0 4 5.373 4 12c0 9 12 28 12 28s12-19 12-28c0-6.627-5.373-12-12-12z"/>
-          <circle cx="16" cy="12" r="6" fill="#ffffff"/>
-          <path fill="#dc2626" d="M16 8l-3 2v4h6v-4z"/>
-          <circle cx="16" cy="10" r="1.5" fill="#ffffff"/>
+          <rect x="13" y="7" width="6" height="10" rx="1" fill="#ffffff"/>
+          <circle cx="16" cy="9" r="1.2" fill="#dc2626"/>
+          <circle cx="16" cy="12" r="1.2" fill="#eab308"/>
+          <circle cx="16" cy="15" r="1.2" fill="#22c55e"/>
         </svg>
       `),
       iconSize: [32, 40],
@@ -95,13 +118,15 @@ class MapView {
     // Filter cameras by city
     const filteredCameras = this._filterCamerasByCity(cameras, cityFilter);
     
-    // Create custom icon for camera markers
-    const cameraIcon = this._createCameraIcon();
-    
     // Add marker for each filtered camera
     filteredCameras.forEach(camera => {
+      // Choose icon based on camera type
+      const icon = camera.type === 'Red Light Camera' 
+        ? this._createRedLightCameraIcon() 
+        : this._createSpeedCameraIcon();
+      
       const marker = L.marker([camera.lat, camera.lng], {
-        icon: cameraIcon
+        icon: icon
       }).addTo(this.map);
       
       // Bind popup to marker
@@ -154,6 +179,20 @@ class MapView {
       icon: userIcon,
       zIndexOffset: 1000 // Ensure user marker appears above camera markers
     }).addTo(this.map);
+  }
+
+  /**
+   * Update user position marker location (for real-time tracking)
+   * @param {{lat: number, lng: number}} position - User's new position
+   */
+  updateUserMarker(position) {
+    if (this.userMarker) {
+      // Update existing marker position
+      this.userMarker.setLatLng([position.lat, position.lng]);
+    } else {
+      // Create marker if it doesn't exist
+      this.renderUserMarker(position);
+    }
   }
 
   /**

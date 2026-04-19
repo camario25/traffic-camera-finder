@@ -27,6 +27,19 @@ const mapView = new MapView();
 const filterController = new FilterController();
 
 /**
+ * Handle position updates from real-time GPS tracking
+ * @param {{lat: number, lng: number}} position - Updated user position
+ */
+function handlePositionUpdate(position) {
+  userLocation = position;
+  
+  // Update user marker on map
+  mapView.updateUserMarker(position);
+  
+  console.log('Position updated:', position);
+}
+
+/**
  * Handle filter change events
  * Re-renders camera markers with new filter without making network requests
  * @param {string} filter - 'all', 'oakland', or 'san-francisco'
@@ -91,6 +104,15 @@ async function initApp() {
     // Render initial camera markers with active filter
     const activeFilter = filterController.getActiveFilter();
     mapView.renderCameraMarkers(cameras, activeFilter);
+
+    // Start watching user position for real-time tracking
+    geolocationService.startWatchingPosition(
+      handlePositionUpdate,
+      (error) => {
+        console.warn('Position tracking error:', error);
+        // Continue showing the app even if tracking fails
+      }
+    );
 
   } catch (error) {
     // Catch any unexpected errors during initialization
